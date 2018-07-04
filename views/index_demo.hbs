@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My first view</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <h1>{{{name}}} Be Like</h1>  
+  <img src="{{lookup images defaultIndex}}">
+  {{#if defaultIndex}}
+    <h1>EL PRIMER HOMER</h1>
+  {{else}}
+    <p>No es el homer que mola</p>
+  {{/if}}
+    <ul>
+    {{#each images}}
+        <li>
+            {{@index}} <img src="{{this}}" width=100>
+            {{#if @first}}
+                {{../name}}
+            {{/if}}
+        </li>
+    {{/each}}
+    </ul>
+    
+    {{#with address}}
+    <div>
+        <ul>
+            <li>Dirección: {{street}}</li>
+            <li>Número: {{number}} {{../name}}</li>
+        </ul>
+    </div>
+    {{/with}}
+
+</body>
+</html>
